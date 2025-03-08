@@ -1,7 +1,5 @@
 /* @Entity Indica que una clase es una entidad y se debe mapear a una tabla de la base de datos*/
-
 /* @Table(name = "productos") Especifica el nombre de la tabla en la base de datos a la que se mapea la entidad. */
-
 @Entity
 @Table(name = "productos")
 public class Producto { 
