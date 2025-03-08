@@ -1,0 +1,50 @@
+jakarta.persistence: Es el paquete que define la API de persistencia en Jakarta EE, conocida como JPA (Jakarta Persistence API). 
+Se usa para gestionar bases de datos a través de entidades, consultas y transacciones.
+Ejemplo: @Entity, @Table, @Column, EntityManager, etc.
+
+jakarta.transaction: Es la API para manejar transacciones en Jakarta EE, proporcionando anotaciones y clases para controlar la atomicidad de las operaciones.
+Ejemplo: @Transactional, UserTransaction, TransactionManager, etc.
+
+ORM (Object-Relational Mapping): Técnica para mapear objetos en memoria a registros en una base de datos relacional.
+Es una técnica o patrón de diseño que permite mapear objetos de un lenguaje de programación orientado a objetos a tablas de una base de datos relacional.
+El objetivo del ORM es facilitar el acceso y manipulación de datos en la base de datos sin tener que escribir SQL manualmente, permitiendo trabajar directamente con objetos.
+
+JPA (Java Persistence API): Especificación estándar para la persistencia en Java.
+Es una especificación de Java que define un conjunto de interfaces y anotaciones para gestionar la persistencia de objetos en bases de datos relacionales. 
+Permite mapear clases Java (entidades) a tablas de la base de datos de forma declarativa.
+Esta especificación define cómo debe funcionar la persistencia de objetos en Java, pero no contiene la lógica de implementación. 
+Es decir, JPA marca las reglas del juego (por ejemplo, las anotaciones como @Entity, @Id, @Column, etc.) y define cómo se deben comportar los métodos para persistir, actualizar o eliminar entidades.
+
+Hibernate: Implementación de JPA que añade funcionalidades avanzadas y mejoras sobre la especificación.
+Es una implementación del estándar JPA que añade funcionalidades adicionales y mejoras. 
+Hibernate se encarga de gestionar el mapeo objeto-relacional, facilitando las operaciones CRUD sin necesidad de escribir SQL manualmente.
+Es una implementación concreta de la especificación JPA (además de ofrecer funcionalidades adicionales). 
+Hibernate se encarga de ejecutar la lógica definida por JPA: convierte las operaciones sobre objetos en sentencias SQL y gestiona la comunicación con la base de datos.
+
+Anotaciones:
+Son metadatos que se pueden agregar al código (por ejemplo, en Java) para indicar cómo se debe comportar o procesar ese código. 
+En el contexto de ORM, las anotaciones se utilizan para definir cómo se mapean las clases y sus atributos a las tablas y columnas de la base de datos.
+Por ejemplo, anotaciones como @Entity, @Table, @Id, y @Column en JPA indican que una clase es una entidad que se debe persistir y cómo se relaciona con la base de datos.
+
+Persistencia:
+Se refiere a la capacidad de almacenar datos de manera duradera para que puedan conservarse y recuperarse en futuras ejecuciones de una aplicación, incluso después de que ésta se haya cerrado.
+En otras palabras, es el mecanismo mediante el cual los datos "persisten" en medios de almacenamiento (como bases de datos, archivos, etc.) en lugar de perderse cuando la aplicación termina su ciclo de vida.
+En el contexto de JPA e Hibernate, la persistencia implica:
+- Mapeo de objetos a tablas: Se asocia cada objeto (o entidad) en memoria a una fila en una tabla de la base de datos.
+- Gestión del ciclo de vida: Los frameworks ORM se encargan de manejar los estados de los objetos (transitorios, persistentes, detachados) para sincronizarlos con la base de datos.
+- Recuperación y actualización: Permite recuperar, modificar y eliminar los datos almacenados, manteniendo la consistencia y la integridad de la información.
+
+Dependencia:
+Una dependencia es simplemente una biblioteca o módulo de software que tu proyecto necesita para funcionar correctamente. 
+Estas dependencias pueden proporcionar desde funcionalidades específicas (como acceso a bases de datos, manejo de JSON, etc.) hasta frameworks completos (como Spring Boot o Hibernate). 
+Al declarar una dependencia en tu archivo de configuración (por ejemplo, pom.xml en Maven), le indicas al gestor de dependencias que descargue esa biblioteca (y sus dependencias transitivas)
+desde un repositorio central, de modo que puedas utilizar sus funcionalidades en tu aplicación.
+- La dependencia de JPA (jakarta.persistence-api) permite que nuestro código utilice las interfaces y anotaciones definidas por la especificación.
+Esto es importante para escribir código estandarizado y mantener la independencia de la implementación.
+- La dependencia de Hibernate (hibernate-core) proporciona la implementación que se encargará de convertir las operaciones sobre las entidades en las operaciones necesarias sobre la base de datos.
+- La dependencia del conector de la base de datos es necesaria para que Hibernate pueda conectarse a la base de datos en cuestión.
+
+En resumen, incluir JPA y Hibernate como dependencias significa que:
+Usas la API de JPA (la especificación) para escribir tu código de persistencia.
+Incorporas Hibernate (la implementación) para que, en tiempo de ejecución, se ejecute la lógica necesaria para interactuar con la base de datos siguiendo lo que indica JPA.
+Esta separación permite flexibilidad: podrías, en teoría, cambiar la implementación (por ejemplo, a EclipseLink) sin modificar el código de negocio, siempre y cuando cumplas con la especificación JPA.
